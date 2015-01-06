@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%--<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
+<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>--%>--%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="SiteDesign.css" rel="stylesheet" />
+    <title>Kærusavn</title>
+      <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico.jpg" type="image/x-icon"/>
+                <link id="Link2" runat="server" rel="icon" href="favicon.ico.jpg" type="image/ico"/>
+    
+    
+
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    
+
+</head>
+<body>
+   
+    <form id="form1" runat="server">
+    <div id="Wrapper"><asp:ScriptManager runat="server"></asp:ScriptManager>
+        <%--<asp:TextBoxWatermarkExtender ID="TBWE2" runat="server"
+    TargetControlID="txtWord"
+    WatermarkText="Skriva leitiorð..."
+    WatermarkCssClass="watermarked" />--%>
+       
+       
+        <div>
+                <div id="Header"><%--<div class="TextRotation2">Kærumálssavn</div>--%>
+                    <a href="Default.aspx"><asp:Image runat="server" ImageUrl="Images/52e63c71ec8d83a8160000fe.jpeg"/></a>
+                    <%--<a href=""><img src="Images/52e63c71ec8d83a8160000fe.jpeg" alt="ALS" /></a>--%>
+                </div>
+           <div id="HeaderLogIn">
+               &nbsp;<asp:LoginView ID="LoginView1" runat="server">
+                   <AnonymousTemplate>
+                       <asp:LoginStatus ID="LoginStatus2" runat="server" LoginText="Rita inn" LogoutText="" />
+                   </AnonymousTemplate>
+                   <LoggedInTemplate>
+                       Vælkomin&nbsp;
+                       <asp:LoginName ID="LoginName1" runat="server" />&nbsp;&nbsp;
+                       
+                      
+                       
+                       <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click1">Administratións innstillingar</asp:LinkButton>&nbsp;&nbsp; <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Rita inn" LogoutPageUrl="~/Admin/AdminHome.aspx" LogoutText="Rita av" />
+                   </LoggedInTemplate>
+               </asp:LoginView>
+               <br/> <div style="text-align: right; margin-top: 27px">
+                   <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                    <%--<asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtWord" MinimumPrefixLength="1" EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" 
+         ServiceMethod="GetCity" >
+    </asp:AutoCompleteExtender>--%>
+                   <%--<asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtWord"
+         MinimumPrefixLength="1" EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" 
+         ServiceMethod="GetCity" >
+    </asp:AutoCompleteExtender>--%>
+
+                     </div>
+               </div>
+           
+            <div class="Clear"></div>
+                    <div id="navcontainer">
+                        <ul>
+                            <li><a href="Default.aspx">Heim</a></li>
+                          <asp:LoginView ID="LoginView2" runat="server">
+                   <LoggedInTemplate>
+                      
+                      <li><a href="Admin/AdminHome.aspx">Admin</a></li>
+                   </LoggedInTemplate>
+               </asp:LoginView>
+
+                        </ul>
+                        
+                    </div>
+					
+                  
+
+                </div>
+        
+        <div class="Clear"></div>
+        <div id="BodyStyle">
+         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        
+        
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+    </div>
+    </form>
+</body>
+</html>

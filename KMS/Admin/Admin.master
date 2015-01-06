@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin</title>
+    <link href="../SiteDesign.css" rel="stylesheet" />
+    <link id="Link1" runat="server" rel="shortcut icon" href="/favicon.ico.jpg" type="image/x-icon"/>
+                <link id="Link2" runat="server" rel="icon" href="/favicon.ico.jpg" type="image/ico"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+  <div id="Wrapper">
+      
+         <div id="AdminHeader"><div class="TextRotation">Admin</div>
+                   <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/52e63c71ec8d83a8160000fe.jpeg"/>
+                    <%--<a href=""><img src="Images/52e63c71ec8d83a8160000fe.jpeg" alt="ALS" /></a>--%>
+        </div>
+      <div id="HeaderLogIn">
+          Vælkomin&nbsp;
+          <asp:LoginName ID="LoginName1" runat="server" />
+          <br/>
+           <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Rita inn"  LogoutText="Rita av" />
+          <br/>
+          <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click1">Administratións innstillingar</asp:LinkButton>
+      </div>
+      <div class="Clear"></div>
+      <div id="navcontainer">
+                        <ul>
+                            <li><a href="../Default.aspx">Forsíða</a></li>
+                            <li><a href="AdminHome.aspx">Admin</a></li>
+                            
+
+                        </ul>
+      </div>
+       <div class="Clear"></div>
+        <div id="BodyStyle">
+            
+                
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                
+            
+            </div>
+
+    </form>
+</body>
+</html>

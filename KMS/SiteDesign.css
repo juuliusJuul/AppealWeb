@@ -1,0 +1,570 @@
+﻿
+
+
+body {
+    background-color: #D4D5CF;
+    font-family: Arial;
+}
+
+#Wrapper {
+    width: 960px;
+    height: auto;
+    margin: auto;
+}
+
+#Header {
+    margin-top: 30px;
+    padding-top: 8px;
+    padding-left: 10px;
+    width: 440px;
+    height: 58px;
+    background-color: #fff;
+    float: left;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#HeaderLogIn {
+    margin-top: 30px;
+    width: 510px;
+    height: 58px;
+    float: left;
+    color: #007583;
+    font-size: 10px;
+    text-align: right;
+    float: left;
+    vertical-align: bottom;
+}
+
+#AdminHeader {
+    margin-top: 30px;
+    padding-top: 8px;
+    padding-left: 10px;
+    width: 440px;
+    height: 58px;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 10;
+    float: left;
+}
+
+.TextRotation {
+    -webkit-transform: rotate(-50deg);
+    -moz-transform: rotate(-50deg);
+    color: #e4d100;
+    margin-left: 320px;
+    font-size: 40px;
+    position: absolute;
+    z-index: 20;
+}
+
+.TextRotation2 {
+    -webkit-transform: rotate(-50deg);
+    -moz-transform: rotate(-50deg);
+    color: #e4d100;
+    margin-left: 320px;
+    margin-top: 10px;
+    font-size: 22px;
+    position: absolute;
+    z-index: 20;
+}
+
+/*#Menu {
+    background-color: white;
+    width: 220px;
+    height: 30px;
+}*/
+
+
+#SearchFilter {
+    margin-top: 30px;
+    width: 350px;
+    height: 240px;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.AdminFilter {
+    margin-top: 30px;
+    width: 300px;
+    min-height: 70px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    float: left;
+}
+
+.AdminFilter2 {
+    margin-top: 8px;
+    width: 300px;
+    min-height: 70px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    float: left;
+}
+
+.AdminFilter3 {
+    margin-top: 30px;
+    margin-left: 5px;
+    width: 300px;
+    min-height: 70px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+    .AdminFilter3 h2 {
+        font-size: 26px;
+        color: #007583;
+        font-weight: bold;
+    }
+
+    .AdminFilter3 h3 {
+        font-size: 10px;
+        color: #808080;
+    }
+
+.AdminFilter4 {
+    margin-top: 8px;
+    width: 300px;
+    margin-left: 5px;
+    min-height: 70px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+#LibraryBody {
+    margin-top: 30px;
+    width: 590px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.TextFilter {
+    border-radius: 10px 10px 10px 10px;
+    background-color: #fff;
+    margin-top: 8px;
+    width: 474px;
+    height: 400px;
+    float: left;
+}
+
+    .TextFilter h3 {
+        font-size: 10px;
+        color: #808080;
+    }
+
+.TextFilter2 {
+    border-radius: 10px 10px 10px 10px;
+    background-color: #fff;
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 474px;
+    height: 400px;
+    float: left;
+}
+
+    .TextFilter2 h3 {
+        font-size: 10px;
+        color: #808080;
+    }
+
+.AdminFilter4 h2 {
+    font-size: 26px;
+    color: #007583;
+    font-weight: bold;
+}
+
+.AdminFilter4 h3 {
+    font-size: 10px;
+    color: #808080;
+}
+
+
+.AdminFilter2 h2 {
+    font-size: 26px;
+    color: #007583;
+    font-weight: bold;
+}
+
+.AdminFilter2 h3 {
+    font-size: 10px;
+    color: #808080;
+}
+
+
+
+
+
+
+
+
+
+
+.AdminFilter h2 {
+    font-size: 26px;
+    color: #007583;
+    font-weight: bold;
+}
+
+.AdminFilter h3 {
+    font-size: 10px;
+    color: #808080;
+}
+
+
+
+#navcontainer {
+    width: 435px;
+    position: absolute;
+    float: left;
+}
+
+    #navcontainer ul {
+        list-style-type: none;
+        text-align: center;
+        position: absolute;
+        bottom: -50px;
+        left: -35px;
+    }
+
+        #navcontainer ul li {
+            float: left;
+            background-color: #fff;
+            margin-left: 5px;
+            width: 90px;
+            height: 24px;
+            padding-top: 6px;
+            border-radius: 5px 5px 0px 0px;
+        }
+
+            #navcontainer ul li a {
+                text-decoration: none;
+                height: 100px;
+                color: #007583;
+            }
+
+                #navcontainer ul li a:visited {
+                    color: #007583;
+                }
+
+
+
+.Clear {
+    clear: both;
+}
+
+
+#LibrarbyBody {
+    width: 450px;
+    margin-top: 30px;
+    min-height: 300px;
+    height: auto;
+    background-color: #ffffff;
+    float: left;
+}
+
+.AdminBody {
+    width: 440px;
+    margin-top: 30px;
+    min-height: 200px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+    .AdminBody h2 {
+        color: #007583;
+    }
+
+
+
+
+
+#DisplayDetails {
+    background-color: red;
+}
+
+#BodyStyle {
+    width: 960px;
+    height: auto;
+}
+
+#Body {
+    margin-left: 10px;
+    margin-top: 30px;
+    padding-top: 15px;
+    width: 555px;
+    min-height: 75px;
+    height: auto;
+    float: left;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#Footer {
+    padding-top: 10PX;
+    text-align: center;
+    color: #808080;
+    clear: both;
+    font-size: 10px;
+}
+
+#display {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+/*<-------------------DIV DESIGN END---------------------->*/
+
+/*<-------------------DIV ADMIN START---------------------->*/
+.divAdmin {
+    margin-top: 30px;
+    width: 435px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+.Wizard {
+    margin-top: 30px;
+    width: 700px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+    .Wizard a {
+        
+    }
+
+.divAdminLibrary {
+    margin-top: 30px;
+    width: 700px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+.Wizard a {
+    color: #007583;
+}
+
+.divAdmin2 {
+    margin-top: 30px;
+    margin-left: 8px;
+    width: 435px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+.divAdmin3 {
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 435px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+.divAdmin4 {
+    margin-top: 8px;
+    width: 435px;
+    min-height: 92px;
+    max-height: auto;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 15px;
+    float: left;
+}
+
+
+
+
+.divAdmin h2 {
+    font-size: 16px;
+    color: #007583;
+    font-weight: bold;
+}
+
+.divAdmin h3 {
+    font-size: 12px;
+    color: #808080;
+}
+
+.divAdmin4 h3 {
+    font-size: 12px;
+    color: #808080;
+}
+
+
+
+.AddOn {
+    width: 945px;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    height: auto;
+    margin-top: 30px;
+    padding-top: 8px;
+}
+
+    .AddOn h3 {
+        font-size: 12px;
+        color: #808080;
+    }
+
+.Right {
+    width: 472px;
+    float: left;
+    height: auto;
+}
+
+.Left {
+    width: 457px;
+    float: left;
+    height: auto;
+    padding-left: 15px;
+}
+
+
+
+/*<-------------------DIV ADMIN END---------------------->*/
+
+
+
+
+
+
+/*<-------------------ITEMS DESIGN---------------------->*/
+
+
+.GridView {
+    border-style: none;
+}
+
+    .GridView a {
+        text-decoration: none;
+        height: 100px;
+        color: #007583;
+    }
+
+
+
+
+
+
+.myList {
+    background-color: #E4D100;
+    width: 180px;
+    height: 20px;
+}
+
+.myBox {
+    width: 178px;
+    background-color: #E4D100;
+    height: 20px;
+    resize: none;
+}
+
+.myButton {
+    width: 90px;
+    margin-top: 5px;
+    margin-left: 88px;
+}
+
+.myButton2 {
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 88px;
+}
+
+.Pager ul {
+    list-style-type: none;
+    font-size: 15px;
+    text-align: left;
+}
+
+.Pager a {
+    color: #007583;
+}
+
+    .Pager a:visited {
+        color: #007583;
+    }
+
+.Library {
+    font-size: 13px;
+}
+
+    .Library a {
+        color: #007583;
+    }
+
+        .Library a:visited {
+            color: #007583;
+        }
+
+
+    .Library tr:nth-child(even) {
+        background-color: #FFFFCC;
+    }
+
+/*<-------------------ITEMS DESIGN END---------------------->*/
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

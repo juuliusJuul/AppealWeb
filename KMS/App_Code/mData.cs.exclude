@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Web;
+
+/// <summary>
+/// Summary description for mData
+/// </summary>
+public class mData
+{
+    public static void CreatePerson(string name)
+    {
+        var db = new MyModelContext();
+        tblPerson tp = new tblPerson();
+        tp.PersonName = name;
+
+        if (tp.PersonName == name)
+        {
+
+        }
+
+        db.tblPersons.InsertOnSubmit(tp);
+        db.SubmitChanges();
+    }
+
+    public static void CreateDocument(string caseNr, int docYear, string docResume, string docResult, int docCourt,
+        int docLaw, int docPerson, string url)
+    {
+        var db = new MyModelContext();
+        tblDocument tp = new tblDocument();
+        tp.DocNr = caseNr;
+        tp.Docyear = docYear;
+        tp.DocResume = docResume;
+        tp.DocResult = docResult;
+        tp.DocCourt = docCourt;
+        tp.DocLaw = docLaw;
+        tp.DocPerson = docPerson;
+        tp.DocStart = DateTime.Now;
+        tp.DocEnd = DateTime.Now;
+        tp.DocAttach = url;
+        db.tblDocuments.InsertOnSubmit(tp);
+        db.SubmitChanges();
+    }
+
+    public static void AddCategory(int cat, int dok)
+    {
+        var db = new MyModelContext();
+        tblSubCategory sub = new tblSubCategory();
+        sub.CategoryId = cat;
+        sub.DocId = dok;
+        db.tblSubCategories.InsertOnSubmit(sub);
+        db.SubmitChanges();
+    }
+
+    public static void CreateSubject(string name)
+    {
+        var db = new MyModelContext();
+        tblCategory c = new tblCategory();
+        c.CategoryName = name;
+        db.tblCategories.InsertOnSubmit(c);
+        db.SubmitChanges();
+    }
+
+   
+    
+}

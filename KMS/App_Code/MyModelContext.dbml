@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hjweb_dk_db" Class="MyModelContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql4.unoeuro.com;Initial Catalog=hjweb_dk_db;User ID=hjweb_dk" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="hjweb_dk_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.aspnet_Applications" Member="aspnet_Applications">
+    <Type Name="aspnet_Application">
+      <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Memberships" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Role" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+    <Type Name="aspnet_Membership">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Roles" Member="aspnet_Roles">
+    <Type Name="aspnet_Role">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_SchemaVersions" Member="aspnet_SchemaVersions">
+    <Type Name="aspnet_SchemaVersion">
+      <Column Name="Feature" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompatibleSchemaVersion" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsCurrentVersion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_UsersInRoles" Member="aspnet_UsersInRoles">
+    <Type Name="aspnet_UsersInRole">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCategory" Member="tblCategories">
+    <Type Name="tblCategory">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblCategory_tblSubCategory" Member="tblSubCategories" ThisKey="CategoryId" OtherKey="CategoryId" Type="tblSubCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCourt" Member="tblCourts">
+    <Type Name="tblCourt">
+      <Column Name="CourtId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourtName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblCourt_tblDocument" Member="tblDocuments" ThisKey="CourtId" OtherKey="DocCourt" Type="tblDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDocSearch" Member="tblDocSearches">
+    <Type Name="tblDocSearch">
+      <Column Name="DocId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SearchId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tblDocument_tblDocSearch" Member="tblDocument" ThisKey="DocId" OtherKey="DocId" Type="tblDocument" IsForeignKey="true" />
+      <Association Name="tblSearchWord_tblDocSearch" Member="tblSearchWord" ThisKey="SearchId" OtherKey="Id" Type="tblSearchWord" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDocument" Member="tblDocuments">
+    <Type Name="tblDocument">
+      <Column Name="DocId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DocHeadText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DocNr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Docyear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DocEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DocResume" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DocResult" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DocCourt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocPerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocAttach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DocCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblDocument_tblDocSearch" Member="tblDocSearches" ThisKey="DocId" OtherKey="DocId" Type="tblDocSearch" />
+      <Association Name="tblDocument_tblLawDoc" Member="tblLawDocs" ThisKey="DocId" OtherKey="DocId" Type="tblLawDoc" />
+      <Association Name="tblDocument_tblSubCategory" Member="tblSubCategories" ThisKey="DocId" OtherKey="DocId" Type="tblSubCategory" />
+      <Association Name="tblDocument_tblUploadDocument" Member="tblUploadDocuments" ThisKey="DocId" OtherKey="DocId" Type="tblUploadDocument" />
+      <Association Name="tblCourt_tblDocument" Member="tblCourt" ThisKey="DocCourt" OtherKey="CourtId" Type="tblCourt" IsForeignKey="true" />
+      <Association Name="tblPerson_tblDocument" Member="tblPerson" ThisKey="DocPerson" OtherKey="PersonId" Type="tblPerson" IsForeignKey="true" />
+      <Association Name="tblYear_tblDocument" Member="tblYear" ThisKey="Docyear" OtherKey="YearId" Type="tblYear" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLaw" Member="tblLaws">
+    <Type Name="tblLaw">
+      <Column Name="LawId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblLaw_tblSubLaw" Member="tblSubLaws" ThisKey="LawId" OtherKey="LawId" Type="tblSubLaw" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLawDoc" Member="tblLawDocs">
+    <Type Name="tblLawDoc">
+      <Column Name="DocId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tblDocument_tblLawDoc" Member="tblDocument" ThisKey="DocId" OtherKey="DocId" Type="tblDocument" IsForeignKey="true" />
+      <Association Name="tblSubLaw_tblLawDoc" Member="tblSubLaw" ThisKey="LawId" OtherKey="SubLawId" Type="tblSubLaw" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPerson" Member="tblPersons">
+    <Type Name="tblPerson">
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblPerson_tblDocument" Member="tblDocuments" ThisKey="PersonId" OtherKey="DocPerson" Type="tblDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSearchWord" Member="tblSearchWords">
+    <Type Name="tblSearchWord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SearchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblSearchWord_tblDocSearch" Member="tblDocSearches" ThisKey="Id" OtherKey="SearchId" Type="tblDocSearch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSubCategory" Member="tblSubCategories">
+    <Type Name="tblSubCategory">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DocId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tblCategory_tblSubCategory" Member="tblCategory" ThisKey="CategoryId" OtherKey="CategoryId" Type="tblCategory" IsForeignKey="true" />
+      <Association Name="tblDocument_tblSubCategory" Member="tblDocument" ThisKey="DocId" OtherKey="DocId" Type="tblDocument" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSubLaw" Member="tblSubLaws">
+    <Type Name="tblSubLaw">
+      <Column Name="SubLawId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubLawName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSubLaw_tblLawDoc" Member="tblLawDocs" ThisKey="SubLawId" OtherKey="LawId" Type="tblLawDoc" />
+      <Association Name="tblLaw_tblSubLaw" Member="tblLaw" ThisKey="LawId" OtherKey="LawId" Type="tblLaw" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUpload" Member="tblUploads">
+    <Type Name="tblUpload">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FileUrl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblUpload_tblUploadDocument" Member="tblUploadDocuments" ThisKey="Id" OtherKey="FileId" Type="tblUploadDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUploadDocument" Member="tblUploadDocuments">
+    <Type Name="tblUploadDocument">
+      <Column Name="DocId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tblDocument_tblUploadDocument" Member="tblDocument" ThisKey="DocId" OtherKey="DocId" Type="tblDocument" IsForeignKey="true" />
+      <Association Name="tblUpload_tblUploadDocument" Member="tblUpload" ThisKey="FileId" OtherKey="Id" Type="tblUpload" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblYear" Member="tblYears">
+    <Type Name="tblYear">
+      <Column Name="YearId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="YearName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblYear_tblDocument" Member="tblDocuments" ThisKey="YearId" OtherKey="Docyear" Type="tblDocument" />
+    </Type>
+  </Table>
+</Database>

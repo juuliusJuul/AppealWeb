@@ -1,0 +1,22 @@
+﻿body {
+    font-family: Arial;
+
+}
+.Window {
+    font-size: 13px;
+    width: 500px;
+    /*background-color: red;*/
+}
+
+    .Window a {
+        color: #007583;
+    }
+
+        .Window a:visited {
+            color: #007583;
+        }
+
+
+    .Window tr:nth-child(even) {
+        background-color: #FFFFCC;
+    }
